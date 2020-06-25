@@ -14,3 +14,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_statusline_ontop=1
 
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
