@@ -13,3 +13,6 @@
 [submodule "bundle/sensible"]
 	path = bundle/sensible
 	url = https://github.com/tpope/vim-sensible
+[submodule "bundle/cpp-enhanced-highlight"]
+	path = bundle/cpp-enhanced-highlight
+	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
