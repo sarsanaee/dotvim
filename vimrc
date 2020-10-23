@@ -2,6 +2,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set number
+set relativenumber
 
 " map <C-K> :pyf /home/alireza/clang-format.py<cr>
 " imap <C-K> <c-o>:pyf /home/alireza/clang-format.py<cr>
