@@ -20,4 +20,7 @@ let g:airline_statusline_ontop=1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
+set spelllang=en
+set spellfile=$HOME/.vim/en.utf-8.add
+
 set visualbell
