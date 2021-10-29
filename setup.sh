@@ -13,6 +13,7 @@ cd ..
 
 # I need to come with something here, I'm sure it is a wrong way.
 mv $DIR .vim
+rm ~/.vimrc
 ln -s ~/.vim/vimrc ~/.vimrc
 
 
