@@ -1,29 +1,63 @@
-execute pathogen#infect()
 syntax on
-filetype plugin indent on
-set number
-set relativenumber
 
-" map <C-K> :pyf /home/alireza/clang-format.py<cr>
-" imap <C-K> <c-o>:pyf /home/alireza/clang-format.py<cr>
-
-map <C-K> :py3f /home/$USER/.vim/clang-format.py<cr>
-imap <C-K> <c-o>:py3f /home/$USER/.vim/clang-format.py<cr>
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
 
 set colorcolumn=80
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_statusline_ontop=1
+highligh ColorColumn ctermbg=0 guibg=lightgrey
 
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
+call plug#begin('~/.vim/plugged')
 
-set spell
-set spelllang=en
-set spellfile=$HOME/.vim/en.utf-8.add
+Plug 'morhetz/gruvbox'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-fugitive'
+Plug 'leafgarland/typescript-vim'
+Plug 'lyuts/vim-rtags'
+Plug 'git@github.com:kien/ctrlp.vim.git'
+Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'mbbill/undotree'
+Plug 'vim-utils/vim-man'
 
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+call plug#end()
 
-set visualbell
+colorscheme gruvbox
+set background=dark
+
+if executable('rb')
+    let g:rg_derive_root='true'
+endif
+
+let g:ctrlp_user_commad = ['.git/', 'git --git-dir=%s/.git ls-files -oc -exclude-standard']
+let mapleader = " "
+let g:netrw_browse_split=2
+let g:netrw_banner = 2
+let g:netrw_winsize = 25
+
+let g:ctrlp_user_cache = 0
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>ps :Rg<Space>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
+
+" YCM
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+
+
