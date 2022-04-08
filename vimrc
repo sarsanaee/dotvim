@@ -17,15 +17,15 @@ set incsearch
 set colorcolumn=80
 highligh ColorColumn ctermbg=0 guibg=lightgrey
 
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'lyuts/vim-rtags'
-Plug 'git@github.com:kien/ctrlp.vim.git'
-Plug 'git@github.com:Valloric/YouCompleteMe.git'
+Plug 'kien/ctrlp.vim'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 
@@ -59,5 +59,3 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 " YCM
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
-
-
