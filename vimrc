@@ -59,3 +59,12 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 " YCM
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Not sure if this is needed or not
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
