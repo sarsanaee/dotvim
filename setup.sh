@@ -2,8 +2,7 @@
 
 # required packages
 sudo apt update
-sudo apt install clang cmake
-sudo apt install ripgrep
+sudo apt -y install clang cmake ripgrep
 
 # install plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -17,7 +16,7 @@ rm $HOME/.vimrc
 cp vimrc $HOME/.vimrc
 
 # installing packages
-vim -c :PlugInstall -c :q
+vim -c :PlugInstall -c :qa
 
 # setup YCM
 pushd $HOME/.vim/plugged/YouCompleteMe
