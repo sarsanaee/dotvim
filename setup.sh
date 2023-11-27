@@ -20,5 +20,5 @@ vim -c :PlugInstall -c :qa
 
 # setup YCM
 pushd $HOME/.vim/plugged/YouCompleteMe
-./install.py --clang-completer
+./install.py --system-libclang --clang-completer
 popd
