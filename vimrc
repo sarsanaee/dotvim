@@ -25,7 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'lyuts/vim-rtags'
 Plug 'kien/ctrlp.vim'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
 
@@ -57,8 +57,8 @@ nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 
 " YCM
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+" nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
 
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -68,3 +68,6 @@ augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
+
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/

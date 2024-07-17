@@ -5,7 +5,7 @@ sudo apt update
 sudo apt -y install clang cmake ripgrep
 
 # install plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim -k --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # setup undodir.
@@ -19,6 +19,6 @@ cp vimrc $HOME/.vimrc
 vim -c :PlugInstall -c :qa
 
 # setup YCM
-pushd $HOME/.vim/plugged/YouCompleteMe
-./install.py --system-libclang --clang-completer
-popd
+# pushd $HOME/.vim/plugged/YouCompleteMe
+# ./install.py --system-libclang --clang-completer
+# popd
