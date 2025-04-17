@@ -13,6 +13,13 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set relativenumber
+set hlsearch
+set spell spelllang=en_us
+setlocal spell spelllang=en_us
+
+" Backspace
+set backspace=indent,eol,start
 
 set colorcolumn=80
 highligh ColorColumn ctermbg=0 guibg=lightgrey
@@ -26,13 +33,19 @@ Plug 'leafgarland/typescript-vim'
 Plug 'lyuts/vim-rtags'
 Plug 'kien/ctrlp.vim'
 " Plug 'ycm-core/YouCompleteMe'
+Plug 'chazy/cscope_maps'
 Plug 'mbbill/undotree'
 Plug 'vim-utils/vim-man'
+Plug 'github/copilot.vim'
+Plug 'preservim/tagbar'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
+set t_Co=256
 
 if executable('rb')
     let g:rg_derive_root='true'
@@ -55,6 +68,8 @@ nnoremap <leader>pv :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ps :Rg<Space>
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
+
 
 " YCM
 " nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
@@ -71,3 +86,17 @@ augroup END
 
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
+
+
+
+" function! NearestMethodOrFunction() abort
+"       return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
+" 
+" set statusline+=%{NearestMethodOrFunction()}
+" 
+" " By default vista.vim never run if you don't call it explicitly.
+" " "
+" " " If you want to show the nearest function in your statusline automatically,
+" " " you can add the following line to your vimrc
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
