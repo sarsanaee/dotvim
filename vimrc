@@ -39,6 +39,7 @@ Plug 'vim-utils/vim-man'
 Plug 'github/copilot.vim'
 Plug 'preservim/tagbar'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale'
 " Plug 'liuchengxu/vista.vim'
 
 call plug#end()
@@ -86,6 +87,29 @@ augroup END
 
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
+
+let g:ale_completion_enabled = 1
+let g:ale_c_clangd_executable = 'clangd'
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_sign_column_always = 1
+let g:ale_linters = {'c': ['clangd'], 'cpp': ['clangd']}
+let g:ale_lint_on_enter = 0        " Don't lint on open
+let g:ale_lint_on_text_changed = 'never'  " Don't lint while typing
+let g:ale_set_balloons = 1
+let g:ale_warn_about_trailing_whitespace = 1
+"
+
+let g:ale_c_parse_makefile = 1
+let g:ale_virtualtext_cursor = 'current'
+let b:ale_fixers = {'c': ['prettier', 'eslint']}
+let g:ale_c_parse_compile_commands = 1
+
+if has("autocmd")
+      autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   execute "normal! g`\"" |
+          \ endif
+endif
 
 
 
