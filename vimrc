@@ -40,10 +40,11 @@ Plug 'github/copilot.vim'
 Plug 'preservim/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
+Plug 'rhysd/vim-clang-format'
+Plug 'szw/vim-maximizer'
 " Plug 'liuchengxu/vista.vim'
 
 call plug#end()
-
 colorscheme gruvbox
 set background=dark
 set t_Co=256
@@ -53,6 +54,7 @@ if executable('rb')
 endif
 
 let g:ctrlp_user_commad = ['.git/', 'git --git-dir=%s/.git ls-files -oc -exclude-standard']
+let g:ctrlp_tabpage_position = 'ac'
 let mapleader = " "
 let g:netrw_browse_split=2
 let g:netrw_banner = 2
@@ -111,6 +113,8 @@ if has("autocmd")
           \ endif
 endif
 
+
+nnoremap <leader>m :MaximizerToggle<CR>
 
 
 " function! NearestMethodOrFunction() abort
