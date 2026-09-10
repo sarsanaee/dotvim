@@ -1,0 +1,3 @@
+# Vim compiles spell/en.utf-8.add into a binary .spl next to it.
+# Regenerated automatically on `zg`; never worth committing.
+spell/*.spl
