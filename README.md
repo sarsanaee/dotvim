@@ -196,19 +196,6 @@ turns it on anywhere you want it.
 - **Requires Vim 8.2+.** Check with `vim --version`. `vim.tiny` (what Ubuntu
   gives you as `vi` out of the box) will not do — the installer tests for
   `+clipboard` rather than for the binary, so it catches that case.
-- **copilot.vim is skipped when `node` is missing**, guarded with
-  `if executable('node')`. Without the guard it raises an error on every
-  `InsertEnter`. Install Node and re-run `:PlugInstall` to enable it, then
-  `:Copilot setup` to authenticate.
-
-  It needs **Node 20 or newer**; Ubuntu packages 18, which is too old — the
-  language server exits with "Node.js too old. Upgrade to 20.x or newer".
-  Get the current LTS from
-  [NodeSource](https://github.com/nodesource/distributions). The guard tests
-  only for the binary, not the version, because reading the version means
-  spawning `node` on every single Vim start — measured at 7ms against a 40ms
-  startup. `install.sh` does that check instead, since it runs rarely, and a
-  too-old Node reports itself clearly anyway.
 - **`set nocompatible` is deliberate.** Plain `vim` implies it when a user
   vimrc exists, but `vim -u path/to/vimrc` does not — and tagbar, ctrlp,
   vim-maximizer and vim-ripgrep all begin with `if &cp | finish`, so without it

@@ -208,12 +208,7 @@ Plug 'dense-analysis/ale'
 Plug 'rhysd/vim-clang-format'
 Plug 'szw/vim-maximizer'
 
-" copilot.vim raises an error on every InsertEnter when node is missing.
-" Guarded so a machine without node still starts clean.
-if executable('node')
-    Plug 'github/copilot.vim'
-endif
-
+" Plug 'github/copilot.vim'       " removed — not wanted
 " Plug 'ycm-core/YouCompleteMe'   " superseded by ALE + clangd below
 " Plug 'liuchengxu/vista.vim'
 
