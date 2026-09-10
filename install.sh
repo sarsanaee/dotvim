@@ -219,8 +219,24 @@ verify() {
     for t in clangd clang-format ctags rg; do
         command -v "$t" >/dev/null 2>&1 && ok "$t present" || warn "$t missing (ALE/Tagbar will be limited)"
     done
-    command -v node >/dev/null 2>&1 && ok "node present (copilot.vim enabled)" \
-        || warn "node missing — copilot.vim is skipped by design, everything else works"
+    # The vimrc guards copilot.vim on `executable('node')` only, because a
+    # version check there costs ~7ms of a ~40ms startup, every launch. The
+    # check belongs here instead: this script runs rarely. A too-old Node is
+    # not silent either way — copilot's own language server reports
+    # "Node.js too old. Upgrade to 20.x or newer".
+    if command -v node >/dev/null 2>&1; then
+        local nodemaj
+        nodemaj="$(node --version 2>/dev/null | sed 's/^v//; s/\..*//')"
+        if [ -n "$nodemaj" ] && [ "$nodemaj" -ge 20 ] 2>/dev/null; then
+            ok "node $(node --version) — copilot.vim enabled"
+        else
+            warn "node $(node --version) is too old for copilot.vim (needs 20+)."
+            warn "  Ubuntu packages 18. Current LTS via NodeSource:"
+            warn "  https://github.com/nodesource/distributions#installation-instructions"
+        fi
+    else
+        warn "node missing — copilot.vim is skipped by design, everything else works"
+    fi
 
     # And the same config under tmux's TERM, which is what you actually use.
     if command -v tmux >/dev/null 2>&1; then
