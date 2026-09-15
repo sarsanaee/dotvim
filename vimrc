@@ -197,7 +197,6 @@ Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
-Plug 'lyuts/vim-rtags'
 Plug 'ctrlpvim/ctrlp.vim'         " maintained fork; kien/ctrlp.vim is dead
 Plug 'chazy/cscope_maps'
 Plug 'mbbill/undotree'
@@ -208,6 +207,7 @@ Plug 'dense-analysis/ale'
 Plug 'rhysd/vim-clang-format'
 Plug 'szw/vim-maximizer'
 
+" Plug 'lyuts/vim-rtags'          " removed — needs +python and rc/rdm; ALE + clangd covers it
 " Plug 'github/copilot.vim'       " removed — not wanted
 " Plug 'ycm-core/YouCompleteMe'   " superseded by ALE + clangd below
 " Plug 'liuchengxu/vista.vim'
